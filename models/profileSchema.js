@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const profileSchema = new mongoose.Schema({
     number:{
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     dateOfBirth:{
         type: String,
