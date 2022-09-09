@@ -58,10 +58,6 @@ router.post('/profile', async (req, res) => {
     const { number, dateOfBirth, gender, age } = req.body;
     try {
         const profile = new Profile({ number, dateOfBirth, gender, age });
-        const existedNumber = await User.findOne({ number });
-        if (existedNumber) {
-            return res.status(400).json("Mobile number already registered !");
-        }
         await profile.save();
         return res.status(200).json("Profile updated successfully");
     } catch (err) {
